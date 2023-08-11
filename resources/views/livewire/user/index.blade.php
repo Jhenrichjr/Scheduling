@@ -1,4 +1,4 @@
-<div class="text-4xl font-black text-center " >
+<div class="my-5 text-4xl font-black text-center " >
     <h1 >User Index</h1>
 
 
