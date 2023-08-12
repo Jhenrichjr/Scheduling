@@ -6,6 +6,6 @@
     <x-ui-input label="Description" placeholder="Enter room capacity" wire:model='description' />
 
 
-    <x-ui-button label="Save" wire:click='create' class="bg-white border-amber-400 border-y-2"/>
+    <x-ui-button label="Save" wire:click='create' class="text-white bg-purple-800 border-black hover:text-black "/>
 </div>
 </div>

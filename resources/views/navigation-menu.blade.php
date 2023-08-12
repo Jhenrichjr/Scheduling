@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100 bg-amber-400">
+<nav x-data="{ open: false }" class="bg-blue-500 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
         <div class="flex justify-between h-16">
@@ -27,10 +27,10 @@
                 </div>
 
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="relative ml-3">
+                    <div class="static ml-3">
                         <x-dropdown align="right" width="60">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
@@ -89,9 +89,9 @@
                                     <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
-                                <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
-                                        {{ Auth::user()->name }}
+                                <span class="inline-flex rounded-md ">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 ">
+                                        {{ Auth::user()->first_name }}{{ Auth::user()->last_name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />

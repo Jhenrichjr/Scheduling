@@ -1,1 +1,1 @@
-<x-ui-button href="{{route('room.create')}}" target="_self" label="Create Room" class="text-black rounded-xl hover:text-amber-500 hover:bg-amber-700 bg-amber-500" />
+<x-ui-button href="{{route('room.create')}}" target="_self" label="Create Room" class="text-white bg-purple-800 rounded-xl hover:text-purple-800 hover:bg-white" />

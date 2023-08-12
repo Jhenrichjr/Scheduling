@@ -8,14 +8,14 @@
     label="Appointment Date Start"
     placeholder="MM-DD-YYYY"
     parse-format="MM-DD-YYYY HH:mm"
-    wire:model='event_start'
+    wire:model='eventStart'
     />
 
     <x-ui-datetime-picker
     label="Appointment Date End"
     placeholder="MM-DD-YYYY"
     parse-format="MM-DD-YYYY HH:mm"
-    wire:model='event_end'
+    wire:model='eventEnd'
     />
     <x-ui-select
     label="Search Room"
@@ -26,6 +26,6 @@
     option-value="id"
 />
 
-    <x-ui-button label="Save" wire:click='create' class="bg-white border-amber-400 border-y-2"/>
+    <x-ui-button label="Save" wire:click='create' class="text-white bg-purple-800 border-black hover:text-black "/>
 </div>
 </div>

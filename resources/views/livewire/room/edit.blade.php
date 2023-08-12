@@ -1,1 +1,15 @@
-<div></div>
+<div class="grid my-5 text-3xl font-semibold text-center 8xl place-items-start md:place-items-center" >
+    <h1>Edit Room</h1>
+    <div class="text-3xl font-semibold text-center 8xl w-96">
+        <x-ui-input label="Room" placeholder="Enter room name" wire:model='name' />
+        <x-ui-inputs.number label="Capacity" placeholder="Enter room capacity" wire:model='capacity' />
+        <x-ui-input label="Description" placeholder="Enter room capacity" wire:model='description' />
+        <x-ui-button label="Save" wire:click='update({{$room->id}})'  class="text-white bg-purple-800 border-black hover:text-black "/>
+
+    </div>
+
+
+
+        {{-- Be like water. --}}
+
+</div>

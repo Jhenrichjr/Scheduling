@@ -12,4 +12,9 @@ class Room extends Model
         return view('livewire.Room');
     }
     use HasFactory;
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class, 'room_id', 'id');
+    }
 }

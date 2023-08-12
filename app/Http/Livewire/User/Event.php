@@ -70,14 +70,14 @@ class Edit extends Component
             if($user->save()){
                 DB::commit();
                 $this->dialog()->success(
-                    $title = "Profile Saved",
-                    $description = 'Your profile was successfully saved'
+                    $title = "Event Saved",
+                    $description = 'Event was successfully saved'
                 );
             }else{
                 DB::rollback();
                 $this->dialog()->error(
                     $title = 'Error !!!',
-                    $description = 'Your profile was not saved'
+                    $description = 'Event was not saved'
                 );
             }
 

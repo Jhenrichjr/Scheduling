@@ -39,6 +39,10 @@ class RoomsTables extends DataTableComponent
                 ->sortable(),
             Column::make("Updated at", "updated_at")
                 ->sortable(),
+            Column::make('Actions')
+                ->label(
+                    fn ( $row, Column $column) => view('layouts.components.buttons.room-buttons.room-row-buttons')->withRow($row)
+                )->html(),
         ];
     }
 }

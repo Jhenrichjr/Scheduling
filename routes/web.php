@@ -48,7 +48,7 @@ Route::prefix('room')->name('room.')->group(function(){
     //
         Route::get('/',RoomIndex::class)->name('index');
         Route::get('create',RoomCreate::class)->name('create');
-        Route::get('edit', RoomEdit::class)->name('edit');
+        Route::get('edit/{room}', RoomEdit::class)->name('edit');
 
     });
 

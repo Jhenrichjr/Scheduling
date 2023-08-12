@@ -7,7 +7,7 @@
         <x-ui-input label="Email Address" placeholder="Email address" wire:model='email' />
         <x-ui-inputs.password label="Password" placeholder="Password" wire:model='password' />
         <x-ui-inputs.password label="Confirm Password" placeholder="Confirm Password" wire:model='password_confirmation'  />
-        <x-ui-button label="Save" wire:click='create' class="bg-amber-400 border-y-8"/>
+        <x-ui-button label="Save" wire:click='create' class="text-white bg-purple-800 border-black hover:text-black "/>
     </div>
 
     {{-- flex justify-center items-center --}}

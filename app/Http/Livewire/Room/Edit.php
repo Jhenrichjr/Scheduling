@@ -5,70 +5,90 @@ namespace App\Http\Livewire\Room;
 use App\Models\Room;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use WireUi\Traits\Actions;
+use Illuminate\Support\Str;
 
 class Edit extends Component
 {
     use Actions;
-    public $id;
+    public $roomId;
     public $slug;
     public $name;
     public $description;
     public $capacity;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    public $room;
 
+    //public $rules =[
+    //   'firstName' => 'required',
+    //   'middleName' => 'required',
+    //   'lastName' => 'required',
+    //   'email' => 'required|unique',
+    //];
 
-    public $rules = [
-        'id' => 'required',
-        'name' => 'required',
-        'capacity' => 'required',
-    ];
+    //mount function only called once everytime for rendering components
+    public function mount(Room $room){
+        $this->room = $room; //select * from user where id= user
+        $this->roomId = $room->id;
+        $this->name = $room->name;
+        $this->capacity = $room->capacity;
+        $this->description = $room->description;
+    }
 
-    public function create()
-    {
+    public function update($id){
 
-        $this->validate();
+        $validated = Validator::make(
+            [
+                'name' =>$this->name,
+                'capacity' =>$this->capacity,
+                'description' =>$this->description,
 
+            ],
+            [
+                'name' => 'required',
+                 'capacity' => 'required',
+                 'roomId' => [
+                    Rule::unique('rooms', 'id'),
+                ]
+
+            ],
+        )->validate();
 
         try{
-        DB::beginTransaction();
+            DB::beginTransaction();
 
-        $room = new Room();
-        $room->id= $this->ID;
-        $room->slug = $this->slug;
-        $room->name = $this->Name;
-        $room->description = $this->Description;
-        $room->capacity = $this ->Capacity;
-	$room->is_active = $this ->Status;
-	$room->created_at = $this ->TimeCreated;
-	$room->updated_at = $this ->TimeUpdated;
+            $room =  Room::find($id);
+            $room->slug = Str::slug($this->name, '-');
+            $room->name = $this->name;
+            $room->description = $this->description;
+            $room->capacity = $this->capacity;
 
-        if ($room->save()){
-            DB::commit();
-            $this->dialog()->success(
-                $title = 'Profile saved',
-                $description = 'User profile was successfully saved',
-            );
-        } else {
+            if($room->save()){
+                DB::commit();
+                $this->dialog()->success(
+                    $title = "Room Saved",
+                    $description = 'Room was successfully saved'
+                );
+            }else{
+                DB::rollback();
+                $this->dialog()->error(
+                    $title = 'Error !!!',
+                    $description = 'Room was not saved'
+                );
+            }
+
+        }catch(\Throwable $th){
             DB::rollBack();
-            $this->dialog()->error(
-                $title = 'Error !!!',
-                $description = 'User profile was not saved',
-
-            );
+            dd($th->getMessage());
         }
-    } catch (\throwable $th){
-        DB::rollBack();
-        dd($th->getMessage());
     }
-    }
+
+
+    //render is called everytime it's refreshed
     public function render()
     {
-
         return view('livewire.room.edit');
     }
 }
-

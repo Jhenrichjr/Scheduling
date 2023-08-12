@@ -18,8 +18,8 @@ class Create extends Component
     public $slug;
     public $name;
     public $description;
-    public $event_start;
-    public $event_end;
+    public $eventStart;
+    public $eventEnd;
 
     // public $is_active;
     // public $created_at;
@@ -27,8 +27,8 @@ class Create extends Component
 
     public $rules = [
         'name' => 'required',
-        'event_start' => 'required',
-        'event_end' => 'required',
+        'eventStart' => 'required',
+        'eventEnd' => 'required',
     ];
     public function create()
     {
@@ -43,8 +43,8 @@ class Create extends Component
         $event->slug = Str::slug($this->name, '-');
         $event->name = $this->name;
         $event->description = $this->description;
-        $event->event_start = Carbon::parse($this->event_start)->toDateTimeString();
-        $event->event_end = Carbon::parse($this->event_end)->toDateTimeString();
+        $event->event_start = Carbon::parse($this->eventStart)->toDateTimeString();
+        $event->event_end = Carbon::parse($this->eventEnd)->toDateTimeString();
         $event->room_id = $this->roomId;
 
 
