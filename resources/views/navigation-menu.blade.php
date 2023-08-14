@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class= "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class= "my-4 d-flex">
                     <x-nav-link class="text-xl " href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -81,7 +81,7 @@
                 @endif
 
                 <!-- Settings Dropdown -->
-                <div class="relative ml-3">
+                <div class="ml-96">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -90,7 +90,7 @@
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md ">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 ">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 transition duration-150 ease-in-out bg-white border border-transparent rounded-md text-slate-900 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 ">
                                         {{ Auth::user()->first_name }}{{ Auth::user()->last_name }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

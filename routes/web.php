@@ -12,6 +12,7 @@ use App\Http\Livewire\Event\Edit as EventEdit;
 use App\Http\Livewire\Event\Index as EventIndex;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,8 @@ use App\Http\Livewire\Event\Index as EventIndex;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -59,3 +62,4 @@ Route::prefix('event')->name('event.')->group(function(){
             Route::get('edit/{event}', EventEdit::class)->name('edit');
 
         });
+
